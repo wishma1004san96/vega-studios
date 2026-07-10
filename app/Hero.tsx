@@ -475,14 +475,17 @@ export default function Hero() {
         ))}
       </div>
 
-      <main className="hero-main">
+      <main className="hero-main relative isolate !-mt-24 !flex !min-h-[100svh] !items-center !overflow-hidden !pt-24 !pb-16 sm:!pb-24 !px-0">
         <motion.section
-          className="hero-block"
+          className="hero-block mx-auto flex w-full max-w-5xl flex-col items-center px-5 text-center"
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
         >
-          <h1 className="hero-headline" aria-label="WE BUILD BRANDS THAT MOVE PEOPLE">
+          <h1
+            className="hero-headline !mt-8 !text-[56px] !leading-[56px] !tracking-[-0.025em]"
+            aria-label="WE BUILD BRANDS THAT MOVE PEOPLE"
+          >
             {headlineLines.map((line, lineIndex) => (
               <span className="hero-line" key={`line-${lineIndex}`}>
                 {line.map((chunk, chunkIndex) => (
@@ -516,7 +519,7 @@ export default function Hero() {
           </h1>
 
           <motion.p
-            className="hero-copy"
+            className="hero-copy !mt-6 !max-w-[720px] !leading-7"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.6 }}
@@ -527,7 +530,7 @@ export default function Hero() {
           </motion.p>
 
           <motion.a
-            className="hero-button"
+            className="hero-button !mt-[24px] !min-w-0 !px-4 !py-1.5 !text-xs !leading-4 !tracking-[2.4px] ![font-family:ui-sans-serif,system-ui,sans-serif]"
             href="#contact"
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
@@ -539,53 +542,130 @@ export default function Hero() {
           </motion.a>
         </motion.section>
 
-        <div className="scroll-indicator" aria-hidden="true">
-          <span className="mouse">
+        <a
+          href="#marquee"
+          aria-label="Scroll to marquee section"
+          className="scroll-indicator group !bottom-5 z-10 !flex !translate-x-[-50%] flex-col items-center !gap-2 text-white/80 transition duration-300 hover:text-white"
+        >
+          <span className="mouse flex !h-11 !w-11 items-center justify-center rounded-full border border-white/15 bg-black/20 backdrop-blur transition duration-300 group-hover:border-white/30">
             <svg
-              className="mouse-icon"
+              className="mouse-icon h-5 w-5 lg:hidden"
               width="20"
               height="20"
-              viewBox="0 0 20 20"
+              viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M14 13.12c0 2.38 0 6.38-1 8.88"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M17.29 21.02c.12-.6.43-2.3.5-3.02"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M2 12a10 10 0 0 1 18-6"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M2 16h.01"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M21.8 16c.2-2 .131-5.354 0-6"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M8.65 22c.21-.66.45-1.32.57-2"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M9 6.8a6 6 0 0 1 9 5.2v2"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <svg
+              className="mouse-icon hidden h-5 w-5 lg:block"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
             >
               <rect
-                x="4"
-                y="1.5"
-                width="12"
-                height="17"
-                rx="6"
+                x="5"
+                y="2"
+                width="14"
+                height="20"
+                rx="7"
                 stroke="currentColor"
-                strokeWidth="1.5"
+                strokeWidth="2"
               />
-              <rect
+              <path
                 className="mouse-wheel"
-                x="9"
-                y="5"
-                width="2"
-                height="4"
-                rx="1"
-                fill="currentColor"
+                d="M12 6v4"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
               />
             </svg>
           </span>
           <svg
-            className="arrow"
+            className="arrow h-4 w-4 animate-bounce"
             width="16"
             height="16"
-            viewBox="0 0 16 16"
+            viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
           >
             <path
-              d="M4 6L8 10L12 6"
+              d="m6 9 6 6 6-6"
               stroke="currentColor"
-              strokeWidth="1.6"
+              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
           </svg>
-        </div>
+        </a>
       </main>
 
       <section id="marquee" className="service-slider" aria-label="Services marquee">

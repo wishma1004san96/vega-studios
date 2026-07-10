@@ -242,16 +242,23 @@ body.nav-menu-open {
 .hero-main {
   position: relative;
   z-index: 2;
-  min-height: calc(100vh - 87px);
+  min-height: 100svh;
+  margin-top: -104px;
   display: grid;
   place-items: center;
-  padding: 1rem 1rem 4.8rem;
+  padding: 96px 1rem 64px;
+}
+
+@media (min-width: 640px) {
+  .hero-main {
+    padding-bottom: 96px;
+  }
 }
 
 .hero-block {
   text-align: center;
   width: min(78vw, 1120px);
-  margin-top: -2vh;
+  margin-top: 0;
   animation: fade-up 700ms ease both;
 }
 
@@ -280,7 +287,7 @@ body.nav-menu-open {
 }
 
 .hero-copy {
-  margin: 24px auto 0;
+  margin: 32px auto 0;
   max-width: 768px;
   font-size: 18px;
   line-height: 28px;
@@ -291,7 +298,7 @@ body.nav-menu-open {
 }
 
 .hero-button {
-  margin-top: 2.25rem;
+  margin-top: 2.5rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -321,7 +328,7 @@ body.nav-menu-open {
 .scroll-indicator {
   position: absolute;
   left: 50%;
-  bottom: 24px;
+  bottom: 16px;
   transform: translateX(-50%);
   display: grid;
   justify-items: center;
@@ -855,15 +862,32 @@ body.nav-menu-open {
   margin: 0 auto;
   cursor: pointer;
   transform: translateZ(0);
+  box-shadow: none;
   transition:
-    background-color 220ms ease-out,
-    color 220ms ease-out;
+    background-color 250ms ease,
+    border-color 250ms ease,
+    color 250ms ease,
+    box-shadow 250ms ease;
 }
 
 .core-value-pill:hover {
-  border-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(120, 175, 255, 0.95);
   background: rgb(74, 120, 206);
   color: rgb(255, 255, 255);
+  box-shadow:
+    0 0 18px rgba(74, 120, 206, 0.45),
+    0 0 8px rgba(120, 175, 255, 0.25);
+}
+
+.core-value-pill:focus-visible {
+  border-color: rgba(120, 175, 255, 0.95);
+  background: rgb(74, 120, 206);
+  color: rgb(255, 255, 255);
+  box-shadow:
+    0 0 18px rgba(74, 120, 206, 0.45),
+    0 0 8px rgba(120, 175, 255, 0.25);
+  outline: 2px solid rgba(120, 175, 255, 0.85);
+  outline-offset: 2px;
 }
 
 .core-value-light {
@@ -1735,12 +1759,13 @@ body.nav-menu-open {
   }
 
   .hero-main {
-    min-height: calc(100vh - 128px);
+    min-height: 100svh;
+    margin-top: -104px;
   }
 
   .hero-block {
     width: min(90vw, 860px);
-    margin-top: -1vh;
+    margin-top: 0;
   }
 
   .hero-copy {
@@ -1812,7 +1837,7 @@ body.nav-menu-open {
   }
 
   .scroll-indicator {
-    bottom: 18px;
+    bottom: 14px;
   }
 
   .service-slider {

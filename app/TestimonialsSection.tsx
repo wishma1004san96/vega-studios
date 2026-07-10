@@ -103,16 +103,30 @@ export default function TestimonialsSection() {
           </p>
         </motion.div>
 
-        <div className="testimonials-grid">
+        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {visible.map((item) => (
-            <article key={item.name} className={`testimonial-card ${item.tilt}`}>
+            <article
+              key={item.name}
+              className={[
+                "relative rounded-2xl border border-white/10 bg-[rgba(10,16,31,0.35)] p-6 transition-transform duration-300",
+                item.tilt === "testimonial-card-left" && "lg:[transform:rotate(-4deg)]",
+                item.tilt === "testimonial-card-right" && "lg:[transform:rotate(4deg)]",
+                item.tilt === "" && "lg:[transform:scale(1.04)]",
+              ]
+                .filter(Boolean)
+                .join(" ")}
+            >
               <div className="testimonial-stars" aria-label="5 out of 5 stars">
                 {Array.from({ length: 5 }).map((_, index) => (
                   <StarIcon key={`${item.name}-star-${index}`} />
                 ))}
               </div>
-              <p className="testimonial-quote">&ldquo;{item.quote}&rdquo;</p>
-              <p className="testimonial-name">{item.name}</p>
+              <p className="mt-4 text-sm font-normal leading-7 tracking-normal text-[#a1a1aa] [font-family:ui-sans-serif,system-ui,sans-serif]">
+                &ldquo;{item.quote}&rdquo;
+              </p>
+              <p className="mt-5 text-sm font-semibold leading-5 tracking-[0.08em] text-[#4a78ce] [font-family:var(--font-orbitron)]">
+                {item.name}
+              </p>
             </article>
           ))}
         </div>
