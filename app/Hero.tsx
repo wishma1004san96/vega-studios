@@ -2,6 +2,9 @@
 
 import { motion } from "framer-motion";
 import Navbar from "./Navbar";
+import ContactSection from "./ContactSection";
+import ProximityValuePill from "./ProximityValuePill";
+import TestimonialsSection from "./TestimonialsSection";
 
 const headlineLines = [
   [
@@ -434,7 +437,7 @@ function ProcessStepIcon({ variant }: { variant: ProcessIconVariant }) {
 export default function Hero() {
   const topSteps = processSteps.slice(0, 3);
   const optimizationStep = processSteps[3];
-  const bottomSteps = processSteps.slice(4);
+  const bottomSteps = [processSteps[6], processSteps[5], processSteps[4]];
 
   return (
     <div className="landing-wrap" id="home">
@@ -620,9 +623,7 @@ export default function Hero() {
             <h3>Core Values</h3>
             <div className="about-values-list">
               {coreValues.map((value) => (
-                <span className="core-value-pill" key={value}>
-                  {value}
-                </span>
+                <ProximityValuePill key={value} label={value} />
               ))}
             </div>
           </div>
@@ -656,75 +657,105 @@ export default function Hero() {
 
       <section
         id="process"
-        className="relative -mt-px overflow-hidden bg-background/60 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-background/60"
+        className="process-section relative -mt-px overflow-hidden bg-[rgb(7,7,10)] after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/5"
         aria-label="Our Process"
       >
         <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-56">
-          <div className="absolute -top-24 left-1/2 h-72 w-[160%] -translate-x-1/2 opacity-60 blur-3xl [mask-image:linear-gradient(to_bottom,black,transparent)] bg-[conic-gradient(from_0deg_at_50%_50%,rgba(72,120,206,0.30),transparent_35%,rgba(210,33,39,0.26),transparent_65%,rgba(72,120,206,0.22))]" />
+          <div className="absolute -top-24 left-1/2 h-72 w-[160%] -translate-x-1/2 opacity-60 blur-3xl [mask-image:linear-gradient(to_bottom,black,transparent)] bg-[conic-gradient(from_0deg_at_50%_0%,rgba(210,33,39,0.75),rgba(74,120,206,0.75),rgba(210,33,39,0.75),rgba(74,120,206,0.75),rgba(210,33,39,0.75))]" />
         </div>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-56">
-          <div className="absolute -bottom-24 left-1/2 h-72 w-[150%] -translate-x-1/2 opacity-65 blur-3xl [mask-image:linear-gradient(to_top,black,transparent)] bg-[radial-gradient(circle_at_50%_50%,rgba(210,33,39,0.25),transparent_62%)]" />
+          <div className="absolute -bottom-24 left-1/2 h-72 w-[160%] -translate-x-1/2 opacity-60 blur-3xl [mask-image:linear-gradient(to_top,black,transparent)] bg-[conic-gradient(from_180deg_at_50%_100%,rgba(210,33,39,0.75),rgba(74,120,206,0.75),rgba(210,33,39,0.75),rgba(74,120,206,0.75),rgba(210,33,39,0.75))]" />
         </div>
 
-        <div className="relative z-10 mx-auto max-w-5xl px-5 py-14">
-          <h2 className="text-center text-[42px] font-semibold tracking-tight leading-[42px] sm:text-5xl [font-family:var(--font-orbitron)]">
+        <div className="relative z-10 mx-auto max-w-6xl px-5 py-16">
+          <h2 className="text-center text-4xl font-semibold tracking-tight text-[#e5e7eb] sm:text-5xl [font-family:var(--font-orbitron)]">
             Our <span className="text-[#d22127]">Process</span>
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-center text-sm leading-7 text-muted sm:text-base">
+          <p className="process-copy mx-auto mt-4 max-w-2xl text-center text-sm leading-7 text-[#a1a1aa] sm:text-base">
             Our process is simple, create, connect and convert.
           </p>
 
-          <div className="mt-10 hidden lg:block">
-            <div className="relative mx-auto max-w-[860px]">
-              <span className="pointer-events-none absolute left-[19%] right-[52%] top-[145px] border-t-2 border-dashed border-white/45" />
-              <span className="pointer-events-none absolute left-[51%] right-[18.5%] top-[145px] border-t-2 border-dashed border-white/45" />
-              <span className="pointer-events-none absolute right-[18.5%] top-[145px] h-[184px] border-l-2 border-dashed border-white/45" />
-              <span className="pointer-events-none absolute left-[19%] right-[52%] top-[329px] border-t-2 border-dashed border-white/45" />
-              <span className="pointer-events-none absolute left-[51%] right-[18.5%] top-[329px] border-t-2 border-dashed border-white/45" />
-
-              <div className="grid grid-cols-3 gap-x-6">
+          <div className="mt-12 hidden lg:block">
+            <div className="mx-auto w-max">
+              <div className="relative flex items-start">
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute h-px border-t-2 border-dashed border-white/60"
+                  style={{ top: 108, left: 128, width: 160 }}
+                />
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute h-px border-t-2 border-dashed border-white/60"
+                  style={{ top: 108, left: 336, width: 160 }}
+                />
                 {topSteps.map((step) => (
-                  <article key={step.title} className="text-center">
-                    <p className="pt-1 text-sm font-semibold tracking-[0.08em] text-[#4a78ce] [font-family:var(--font-orbitron)]">
-                      {step.title}
-                    </p>
-                    <p className="mt-3 px-1 text-sm leading-6 text-[#a1a1aa]">{step.description}</p>
-                    <span className="mt-4 inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-[#4a78ce] bg-black/20 text-white backdrop-blur">
-                      <ProcessStepIcon variant={step.icon} />
-                    </span>
-                  </article>
+                  <div className="w-52 shrink-0" key={step.title}>
+                    <div className="h-20 px-2 text-center">
+                      <p className="text-sm font-semibold tracking-[0.08em] text-[#4a78ce] [font-family:var(--font-orbitron)]">
+                        {step.title}
+                      </p>
+                      <p className="process-copy mt-2 text-xs leading-5 text-[#a1a1aa]">{step.description}</p>
+                    </div>
+                    <div className="flex h-14 items-center justify-center">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#4a78ce] bg-black/20 text-white backdrop-blur">
+                        <ProcessStepIcon variant={step.icon} />
+                      </span>
+                    </div>
+                  </div>
                 ))}
               </div>
 
-              <div className="mt-7 grid grid-cols-3 gap-x-6">
-                <div />
-                <div />
-                <article className="grid grid-cols-[52px_1fr] items-start gap-x-4 pl-[46px]">
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-[#4a78ce] bg-black/20 text-white backdrop-blur">
-                    <ProcessStepIcon variant={optimizationStep.icon} />
-                  </span>
-                  <div>
-                    <p className="pt-1 text-sm font-semibold tracking-[0.08em] text-[#4a78ce] [font-family:var(--font-orbitron)]">
-                      {optimizationStep.title}
-                    </p>
-                    <p className="mt-2 max-w-[232px] text-sm leading-6 text-[#a1a1aa]">
-                      {optimizationStep.description}
-                    </p>
+              <div className="flex w-full justify-end">
+                <div className="relative w-52 shrink-0">
+                  <div className="relative h-[120px]">
+                    <div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute left-1/2 top-[-4px] h-[calc(50%-24px+4px)] -translate-x-1/2 border-l-2 border-dashed border-white/60"
+                    />
+                    <div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute bottom-[-4px] left-1/2 h-[calc(50%-24px+4px)] -translate-x-1/2 border-l-2 border-dashed border-white/60"
+                    />
+                    <span className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-[#4a78ce] bg-black/20 text-white backdrop-blur">
+                      <ProcessStepIcon variant={optimizationStep.icon} />
+                    </span>
+                    <div className="absolute left-[calc(50%+40px)] top-1/2 w-64 -translate-y-1/2 text-left">
+                      <p className="text-sm font-semibold tracking-[0.08em] text-[#4a78ce] [font-family:var(--font-orbitron)]">
+                        {optimizationStep.title}
+                      </p>
+                      <p className="process-copy mt-2 text-xs leading-5 text-[#a1a1aa]">
+                        {optimizationStep.description}
+                      </p>
+                    </div>
                   </div>
-                </article>
+                </div>
               </div>
 
-              <div className="mt-6 grid grid-cols-3 gap-x-6">
+              <div className="relative flex flex-row-reverse items-start">
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute h-px border-t-2 border-dashed border-white/60"
+                  style={{ top: 28, left: 128, width: 160 }}
+                />
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute h-px border-t-2 border-dashed border-white/60"
+                  style={{ top: 28, left: 336, width: 160 }}
+                />
                 {bottomSteps.map((step) => (
-                  <article key={step.title} className="text-center">
-                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-[#4a78ce] bg-black/20 text-white backdrop-blur">
-                      <ProcessStepIcon variant={step.icon} />
-                    </span>
-                    <p className="pt-3 text-sm font-semibold tracking-[0.08em] text-[#4a78ce] [font-family:var(--font-orbitron)]">
-                      {step.title}
-                    </p>
-                    <p className="mt-3 px-1 text-sm leading-6 text-[#a1a1aa]">{step.description}</p>
-                  </article>
+                  <div className="w-52 shrink-0" key={step.title}>
+                    <div className="flex h-14 items-center justify-center">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#4a78ce] bg-black/20 text-white backdrop-blur">
+                        <ProcessStepIcon variant={step.icon} />
+                      </span>
+                    </div>
+                    <div className="h-20 px-2 text-center">
+                      <p className="text-sm font-semibold tracking-[0.08em] text-[#4a78ce] [font-family:var(--font-orbitron)]">
+                        {step.title}
+                      </p>
+                      <p className="process-copy mt-2 text-xs leading-5 text-[#a1a1aa]">{step.description}</p>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
@@ -735,17 +766,17 @@ export default function Hero() {
               {processSteps.map((step) => (
                 <article
                   key={step.title}
-                  className="rounded-xl border border-white/10 bg-black/20 p-4 backdrop-blur"
+                  className="process-step rounded-xl border border-white/10 bg-black/25 p-4 backdrop-blur"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#4a78ce] bg-black/25 text-white">
+                    <span className="process-icon-wrap inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-[#4a78ce] bg-black/30 text-white shadow-[0_0_14px_rgba(74,120,206,0.28)]">
                       <ProcessStepIcon variant={step.icon} />
                     </span>
-                    <p className="text-sm font-semibold tracking-[0.08em] text-[#4a78ce] [font-family:var(--font-orbitron)]">
+                    <p className="process-step-title text-sm font-semibold tracking-[0.06em] text-[#4a78ce] [font-family:var(--font-orbitron)]">
                       {step.title}
                     </p>
                   </div>
-                  <p className="mt-3 text-sm leading-6 text-[#a1a1aa]">{step.description}</p>
+                  <p className="mt-3 text-sm leading-6 text-[#c4c4cc]">{step.description}</p>
                 </article>
               ))}
             </div>
@@ -753,7 +784,8 @@ export default function Hero() {
         </div>
       </section>
 
-      <section id="contact" className="anchor-gap" aria-hidden="true" />
+      <TestimonialsSection />
+      <ContactSection />
     </div>
   );
 }
