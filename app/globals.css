@@ -936,13 +936,16 @@ body.nav-menu-open {
 .about-row h3 {
   margin: 0;
   color: #f8fbff;
-  font-size: 18px;
   font-weight: 600;
   font-family: var(--font-orbitron);
   line-height: 28px;
   letter-spacing: -0.45px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.about-list .about-row h3 {
+  font-size: 21px;
 }
 
 .about-row h3 span {
@@ -1660,8 +1663,8 @@ body.nav-menu-open {
     font-size: clamp(1.8rem, 10vw, 2.4rem);
   }
 
-  .about-row h3 {
-    font-size: 18px;
+  .about-list .about-row h3 {
+    font-size: 21px;
     line-height: 28px;
   }
 
@@ -2236,8 +2239,8 @@ body.nav-menu-open {
     gap: 1.5rem;
   }
 
-  .about-row h3 {
-    font-size: 17px;
+  .about-list .about-row h3 {
+    font-size: 20px;
     line-height: 26px;
   }
 
