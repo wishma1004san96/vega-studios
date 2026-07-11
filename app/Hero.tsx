@@ -22,7 +22,10 @@ const headlineLines = [
 const description = [
   "Vega studios is a full-service marketing agency that crafts into impact.",
   "We help businesses grow through creative storytelling, smart strategy, and results-driven digital experiences.",
-];
+] as const;
+
+const descriptionMobile =
+  "Vega studios is a full-service marketing agency that crafts into impact. We help businesses grow through creative storytelling., smart strategy, and results-driven digital experinces.";
 
 const particles = [
   { left: "11%", top: "23%", size: 6, delay: 0, duration: 11 },
@@ -443,49 +446,58 @@ export default function Hero() {
     <div className="landing-wrap" id="home">
       <Navbar />
 
-      <div className="hero-particles" aria-hidden="true">
-        <div className="hero-bg-blur" />
-        <div className="hero-bg-grid" />
-        <div className="hero-bg-overlay" />
+      <main className="hero-main relative isolate !-mt-24 !flex !min-h-[100svh] max-lg:!min-h-[88svh] !items-center !overflow-hidden !pt-20 max-lg:!pt-20 md:!pt-[60px] lg:!pt-1 !pb-12 max-lg:!pb-14 sm:!pb-24 !px-0">
+        <div className="hero-particles" aria-hidden="true">
+          <div className="hero-bg-blur" />
+          <div className="hero-bg-grid" />
+          <div className="hero-bg-overlay" />
 
-        {particles.map((particle, index) => (
-          <motion.span
-            key={`${particle.left}-${particle.top}-${index}`}
-            className="hero-particle"
-            style={{
-              left: particle.left,
-              top: particle.top,
-              width: particle.size,
-              height: particle.size,
-            }}
-            animate={{
-              y: [0, -6, 0],
-              x: [0, 3, -2, 0],
-              scale: [1, 1.08, 1],
-              opacity: [0.12, 0.3, 0.11],
-            }}
-            transition={{
-              duration: particle.duration,
-              delay: particle.delay,
-              repeat: Infinity,
-              repeatType: "mirror",
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-      </div>
+          {particles.map((particle, index) => (
+            <motion.span
+              key={`${particle.left}-${particle.top}-${index}`}
+              className="hero-particle"
+              style={{
+                left: particle.left,
+                top: particle.top,
+                width: particle.size,
+                height: particle.size,
+              }}
+              animate={{
+                y: [0, -6, 0],
+                x: [0, 3, -2, 0],
+                scale: [1, 1.08, 1],
+                opacity: [0.12, 0.3, 0.11],
+              }}
+              transition={{
+                duration: particle.duration,
+                delay: particle.delay,
+                repeat: Infinity,
+                repeatType: "mirror",
+                ease: "easeInOut",
+              }}
+            />
+          ))}
+        </div>
 
-      <main className="hero-main relative isolate !-mt-24 !flex !min-h-[100svh] !items-center !overflow-hidden !pt-24 !pb-16 sm:!pb-24 !px-0">
         <motion.section
-          className="hero-block mx-auto flex w-full max-w-5xl flex-col items-center px-5 text-center"
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+          id="hero"
+          className="hero-block relative z-[3] mx-auto flex w-full max-w-5xl flex-col items-center px-4 max-lg:px-4 md:px-5 text-center"
+          initial={false}
         >
           <h1
-            className="hero-headline !mt-8 !text-[56px] !leading-[56px] !tracking-[-0.025em]"
+            className="hero-headline max-md:!mt-0 lg:!mt-8 lg:!text-[56px] lg:!leading-[56px] lg:!tracking-[-0.025em]"
             aria-label="WE BUILD BRANDS THAT MOVE PEOPLE"
           >
+            <span className="md:hidden">
+              <span className="hero-line">
+                WE <span className="is-accent">BUILD</span> BRANDS
+              </span>
+              <span className="hero-line">
+                THAT <span className="is-accent">MOVE</span> PEOPLE
+              </span>
+            </span>
+
+            <span className="hidden md:contents">
             {headlineLines.map((line, lineIndex) => (
               <span className="hero-line" key={`line-${lineIndex}`}>
                 {line.map((chunk, chunkIndex) => (
@@ -516,25 +528,25 @@ export default function Hero() {
                 ))}
               </span>
             ))}
+            </span>
           </h1>
 
           <motion.p
-            className="hero-copy !mt-6 !max-w-[720px] !leading-7"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.6 }}
+            className="hero-copy lg:!mt-5 !max-w-[720px] lg:!leading-7"
+            initial={false}
           >
-            {description[0]}
-            <br />
-            {description[1]}
+            <span className="md:hidden">{descriptionMobile}</span>
+            <span className="hidden md:contents">
+              {description[0]}
+              <br />
+              {description[1]}
+            </span>
           </motion.p>
 
           <motion.a
-            className="hero-button !mt-[24px] !min-w-0 !px-4 !py-1.5 !text-xs !leading-4 !tracking-[2.4px] ![font-family:ui-sans-serif,system-ui,sans-serif]"
+            className="hero-button lg:!mt-[24px] lg:!mt-5 !min-w-0 max-lg:!w-full max-lg:!max-w-[340px] !px-4 !py-1.5 !text-xs !leading-4 !tracking-[2.4px] !text-white ![font-family:ui-sans-serif,system-ui,sans-serif]"
             href="#contact"
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.85 }}
+            initial={false}
             whileHover={{ y: -2, scale: 1.01 }}
             whileTap={{ scale: 0.99 }}
           >
@@ -545,7 +557,7 @@ export default function Hero() {
         <a
           href="#marquee"
           aria-label="Scroll to marquee section"
-          className="scroll-indicator group !bottom-5 z-10 !flex !translate-x-[-50%] flex-col items-center !gap-2 text-white/80 transition duration-300 hover:text-white"
+          className="scroll-indicator group !bottom-4 max-lg:!bottom-3 lg:!bottom-5 z-10 flex flex-col items-center !gap-2 text-white/80 transition duration-300 hover:text-white"
         >
           <span className="mouse flex !h-11 !w-11 items-center justify-center rounded-full border border-white/15 bg-black/20 backdrop-blur transition duration-300 group-hover:border-white/30">
             <svg
@@ -747,11 +759,11 @@ export default function Hero() {
           <div className="absolute -bottom-24 left-1/2 h-72 w-[160%] -translate-x-1/2 opacity-60 blur-3xl [mask-image:linear-gradient(to_top,black,transparent)] bg-[conic-gradient(from_180deg_at_50%_100%,rgba(210,33,39,0.75),rgba(74,120,206,0.75),rgba(210,33,39,0.75),rgba(74,120,206,0.75),rgba(210,33,39,0.75))]" />
         </div>
 
-        <div className="relative z-10 mx-auto max-w-6xl px-5 py-16">
-          <h2 className="text-center text-4xl font-semibold tracking-tight text-[#e5e7eb] sm:text-5xl [font-family:var(--font-orbitron)]">
+        <div className="relative z-10 mx-auto max-w-6xl px-4 py-16 max-lg:px-4 max-lg:py-10 lg:px-5 lg:py-16">
+          <h2 className="text-center text-4xl font-semibold tracking-tight text-[#e5e7eb] max-lg:text-3xl sm:text-5xl [font-family:var(--font-orbitron)]">
             Our <span className="text-[#d22127]">Process</span>
           </h2>
-          <p className="process-copy mx-auto mt-4 max-w-2xl text-center text-sm leading-7 text-[#a1a1aa] sm:text-base">
+          <p className="process-copy mx-auto mt-4 max-w-2xl text-center text-sm leading-7 text-[#a1a1aa] max-lg:mt-3 max-lg:text-sm sm:text-base">
             Our process is simple, create, connect and convert.
           </p>
 
@@ -841,25 +853,16 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="mt-12 lg:hidden">
-            <div className="space-y-6">
-              {processSteps.map((step) => (
-                <article
-                  key={step.title}
-                  className="process-step rounded-xl border border-white/10 bg-black/25 p-4 backdrop-blur"
-                >
-                  <div className="flex items-center gap-3">
-                    <span className="process-icon-wrap inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-[#4a78ce] bg-black/30 text-white shadow-[0_0_14px_rgba(74,120,206,0.28)]">
-                      <ProcessStepIcon variant={step.icon} />
-                    </span>
-                    <p className="process-step-title text-sm font-semibold tracking-[0.06em] text-[#4a78ce] [font-family:var(--font-orbitron)]">
-                      {step.title}
-                    </p>
-                  </div>
-                  <p className="mt-3 text-sm leading-6 text-[#c4c4cc]">{step.description}</p>
-                </article>
-              ))}
-            </div>
+          <div className="process-mobile-timeline mt-12 max-lg:mt-8 lg:hidden">
+            {processSteps.map((step) => (
+              <article key={step.title} className="process-mobile-step">
+                <span className="process-mobile-icon" aria-hidden="true">
+                  <ProcessStepIcon variant={step.icon} />
+                </span>
+                <p className="process-mobile-title">{step.title}</p>
+                <p className="process-mobile-copy process-copy">{step.description}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>

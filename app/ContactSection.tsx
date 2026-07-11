@@ -137,7 +137,7 @@ export default function ContactSection() {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
-          <h2 className={`contact-title !text-4xl !font-semibold !leading-none !tracking-tight sm:!text-5xl ${contactOrbitron}`}>
+          <h2 className={`contact-title !text-4xl !font-semibold !leading-none !tracking-tight max-lg:!text-[clamp(2rem,8vw,2.5rem)] sm:!text-5xl ${contactOrbitron}`}>
             Contact <em>Us</em>
           </h2>
           <p className={`contact-kicker !text-base !font-semibold !leading-6 !tracking-[0.1em] !normal-case ${contactOrbitron}`}>
@@ -147,8 +147,8 @@ export default function ContactSection() {
             Ready to launch something amazing? Let&apos;s talk ideas, not just deliverables.
           </p>
 
-          <div className="mt-8 grid gap-4">
-            <div className="rounded-2xl border border-white/10 bg-[rgba(10,16,31,0.4)] p-5 text-left">
+          <div className="mt-8 grid gap-4 max-lg:mt-6 max-lg:gap-3">
+            <div className="rounded-2xl border border-white/10 bg-[rgba(10,16,31,0.4)] p-5 text-left max-lg:p-4">
               <div className="flex items-center gap-2">
                 <MailIcon />
                 <p className={`text-sm font-semibold leading-5 text-[var(--ink)] ${contactSans}`}>Email</p>
@@ -161,7 +161,7 @@ export default function ContactSection() {
               </a>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-[rgba(10,16,31,0.4)] p-5 text-left">
+            <div className="rounded-2xl border border-white/10 bg-[rgba(10,16,31,0.4)] p-5 text-left max-lg:p-4">
               <div className="flex items-center gap-2">
                 <PhoneIcon />
                 <p className={`text-sm font-semibold leading-5 text-[var(--ink)] ${contactSans}`}>Contact Numbers</p>
@@ -180,7 +180,7 @@ export default function ContactSection() {
               </a>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-[rgba(10,16,31,0.4)] p-5 text-left">
+            <div className="rounded-2xl border border-white/10 bg-[rgba(10,16,31,0.4)] p-5 text-left max-lg:p-4">
               <div className="flex items-center gap-2">
                 <MapPinIcon />
                 <p className={`text-sm font-semibold leading-5 text-[var(--ink)] ${contactSans}`}>Location</p>
@@ -191,7 +191,7 @@ export default function ContactSection() {
         </motion.div>
 
         <motion.div
-          className="rounded-3xl border border-white/10 bg-[rgba(10,16,31,0.4)] p-6"
+          className="rounded-3xl border border-white/10 bg-[rgba(10,16,31,0.4)] p-6 max-lg:p-5 max-md:p-4"
           initial={{ opacity: 0, x: 16 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-60px" }}
@@ -212,8 +212,8 @@ export default function ContactSection() {
               </button>
             </div>
           ) : (
-            <form className="space-y-4" onSubmit={handleSubmit}>
-              <div className="grid gap-4 sm:grid-cols-2">
+            <form className="space-y-4 max-lg:space-y-3.5" onSubmit={handleSubmit}>
+              <div className="grid gap-4 max-lg:gap-3.5 sm:grid-cols-2">
                 <label className={`grid gap-2 text-sm font-normal leading-5 text-zinc-400 ${contactSans}`}>
                   <span>Name</span>
                   <input
@@ -249,7 +249,7 @@ export default function ContactSection() {
                 </label>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className="grid gap-4 max-lg:gap-3.5 sm:grid-cols-2">
                 <label className={`grid gap-2 text-sm font-normal leading-5 text-zinc-400 ${contactSans}`}>
                   <span>Contact Number</span>
                   <input
@@ -306,7 +306,7 @@ export default function ContactSection() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className={`inline-flex h-11 items-center justify-center rounded-xl bg-[var(--red)] px-5 text-sm font-semibold leading-5 text-white shadow-[0_8px_24px_rgba(243,40,52,0.28)] transition-[box-shadow,transform,opacity] hover:shadow-[0_14px_30px_rgba(243,40,52,0.4)] hover:not-disabled:-translate-y-px disabled:cursor-wait disabled:opacity-70 ${contactSans}`}
+                  className={`inline-flex h-11 min-h-[44px] w-full max-w-full items-center justify-center rounded-xl bg-[var(--red)] px-5 text-sm font-semibold leading-5 text-white shadow-[0_8px_24px_rgba(243,40,52,0.28)] transition-[box-shadow,transform,opacity] hover:shadow-[0_14px_30px_rgba(243,40,52,0.4)] hover:not-disabled:-translate-y-px disabled:cursor-wait disabled:opacity-70 max-lg:min-h-[44px] sm:w-auto ${contactSans}`}
                 >
                   {submitting ? "Sending..." : "Send message"}
                 </button>

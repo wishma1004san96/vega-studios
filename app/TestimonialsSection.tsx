@@ -103,7 +103,7 @@ export default function TestimonialsSection() {
           </p>
         </motion.div>
 
-        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-5 max-lg:mt-8 max-lg:gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {visible.map((item) => (
             <article
               key={item.name}
