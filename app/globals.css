@@ -907,12 +907,14 @@ body.nav-menu-open {
 .about-title {
   margin: 0;
   text-align: center;
-  font-family: var(--font-geist-sans), "Orbitron", sans-serif;
+  font-family: var(--font-orbitron);
   color: #ecf0ff;
   font-size: 48px;
   font-weight: 600;
   line-height: 48px;
   letter-spacing: -1.2px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .about-title em {
@@ -936,9 +938,11 @@ body.nav-menu-open {
   color: #f8fbff;
   font-size: 18px;
   font-weight: 600;
-  font-family: var(--font-geist-sans), "Orbitron", sans-serif;
+  font-family: var(--font-orbitron);
   line-height: 28px;
   letter-spacing: -0.45px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .about-row h3 span {
@@ -951,9 +955,11 @@ body.nav-menu-open {
   color: rgb(161, 161, 170);
   font-size: 16px;
   line-height: 28px;
-  font-family: var(--font-geist-mono), "Rajdhani", ui-sans-serif, system-ui, sans-serif;
+  font-family: ui-sans-serif, system-ui, sans-serif;
   font-weight: 400;
   letter-spacing: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .about-values-row {
@@ -972,10 +978,13 @@ body.nav-menu-open {
 }
 
 .about-values-row h3 {
-  font-family: var(--font-geist-sans), "Orbitron", sans-serif;
+  font-family: var(--font-orbitron);
   font-size: 30px;
+  font-weight: 600;
   line-height: 36px;
   letter-spacing: -0.75px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .core-value-pill {
@@ -993,8 +1002,10 @@ body.nav-menu-open {
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
-  font-family: var(--font-geist-mono), "Rajdhani", ui-sans-serif, system-ui, sans-serif;
+  font-family: ui-sans-serif, system-ui, sans-serif;
   letter-spacing: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background: rgba(113, 113, 122, 0.25);
   backdrop-filter: blur(5px);
   margin: 0 auto;
