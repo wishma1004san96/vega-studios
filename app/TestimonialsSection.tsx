@@ -85,8 +85,9 @@ export default function TestimonialsSection() {
   const visible = testimonials.slice(page * 3, page * 3 + 3);
 
   return (
-    <section id="testimonials" className="testimonials-section" aria-label="Clients and Testimonials">
-      <div className="testimonials-shell">
+    <>
+      <section id="testimonials" className="testimonials-section" aria-label="Clients and Testimonials">
+        <div className="testimonials-shell">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -179,23 +180,24 @@ export default function TestimonialsSection() {
             </svg>
           </button>
         </div>
+        </div>
+      </section>
 
-        <div className="client-marquee-wrap">
-          <div className="client-marquee-track">
-            {[...clientLogos, ...clientLogos].map((logo, index) => (
-              <div className="client-logo-item" key={`${logo.alt}-${index}`}>
-                <Image
-                  src={logo.src}
-                  alt={logo.alt}
-                  width={240}
-                  height={80}
-                  className={logo.invert ? "client-logo invert" : "client-logo"}
-                />
-              </div>
-            ))}
-          </div>
+      <div className="client-marquee-wrap" aria-label="Trusted client logos">
+        <div className="client-marquee-track">
+          {[...clientLogos, ...clientLogos].map((logo, index) => (
+            <div className="client-logo-item" key={`${logo.alt}-${index}`}>
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={240}
+                height={80}
+                className={logo.invert ? "client-logo invert" : "client-logo"}
+              />
+            </div>
+          ))}
         </div>
       </div>
-    </section>
+    </>
   );
 }

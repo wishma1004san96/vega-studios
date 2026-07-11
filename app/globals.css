@@ -1480,10 +1480,26 @@ body.nav-menu-open {
 }
 
 .client-marquee-wrap {
-  margin-top: 40px;
+  position: relative;
+  z-index: 8;
+  box-sizing: border-box;
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  height: 150px;
   overflow: hidden;
-  width: 100%;
-  max-width: 100%;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    rgba(74, 14, 18, 0.98) 0%,
+    rgba(28, 8, 10, 0.98) 18%,
+    rgb(7, 7, 10) 50%,
+    rgba(28, 8, 10, 0.98) 82%,
+    rgba(74, 14, 18, 0.98) 100%
+  );
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .client-marquee-track {
@@ -1491,6 +1507,7 @@ body.nav-menu-open {
   align-items: center;
   width: max-content;
   animation: client-marquee-scroll 135s linear infinite;
+  will-change: transform;
 }
 
 .client-logo-item {
@@ -1498,15 +1515,29 @@ body.nav-menu-open {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .client-logo {
   width: auto;
-  height: 64px;
+  height: auto;
+  max-width: 200px;
+  max-height: 90px;
   object-fit: contain;
+  object-position: center;
   opacity: 0.9;
   filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.55));
   transition: opacity 180ms ease;
+}
+
+@media (min-width: 1024px) {
+  .client-logo-item {
+    margin-inline: 12px;
+  }
+
+  .client-marquee-track {
+    animation-duration: 110s;
+  }
 }
 
 .client-logo.invert {
@@ -2117,12 +2148,13 @@ body.nav-menu-open {
     line-height: 26px;
   }
 
-  .client-logo {
-    height: 52px;
-  }
-
   .client-logo-item {
     margin-inline: 16px;
+  }
+
+  .client-logo {
+    max-height: 56px;
+    max-width: 160px;
   }
 
   .contact-section {
@@ -2354,15 +2386,16 @@ body.nav-menu-open {
   }
 
   .client-marquee-wrap {
-    margin-top: 1.75rem;
+    height: 100px;
   }
 
   .client-logo {
-    height: 44px;
+    max-height: 48px;
+    max-width: 140px;
   }
 
   .client-logo-item {
-    margin-inline: 12px;
+    margin-inline: 10px;
   }
 
   .contact-section {
