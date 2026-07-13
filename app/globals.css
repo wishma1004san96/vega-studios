@@ -1516,11 +1516,20 @@ body.nav-menu-open {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  line-height: 0;
+}
+
+.client-logo-item > span,
+.client-logo-item > img {
+  display: flex !important;
+  align-items: center;
+  line-height: 0;
 }
 
 .client-logo {
-  width: auto;
-  height: auto;
+  display: block;
+  width: auto !important;
+  height: auto !important;
   max-width: 200px;
   max-height: 90px;
   object-fit: contain;
@@ -1528,6 +1537,8 @@ body.nav-menu-open {
   opacity: 0.9;
   filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.55));
   transition: opacity 180ms ease;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 @media (min-width: 1024px) {

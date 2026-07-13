@@ -13,10 +13,11 @@ export default function Footer() {
             aria-label="Vega Studios Home"
           >
             <Image
-              src="https://vegastudios.io/logos/vega-studio-logo-white.png"
+              src="/logos/vega-studio-logo-white.webp"
               alt="Vega Studios"
               width={420}
               height={110}
+              loading="eager"
               className="h-24 w-auto sm:h-28 max-lg:h-20 max-md:h-16"
             />
           </a>

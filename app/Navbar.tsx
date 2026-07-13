@@ -178,7 +178,7 @@ export default function Navbar() {
           onClick={(event) => scrollToSection(event, "home")}
         >
           <Image
-            src="https://vegastudios.io/logos/vega-studio-logo-white.png"
+            src="/logos/vega-studio-logo-white.webp"
             alt="Vega Studios"
             width={420}
             height={110}

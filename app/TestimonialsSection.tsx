@@ -45,28 +45,28 @@ const testimonials = [
 
 const clientLogos = [
   {
-    src: "https://vegastudios.io/clients/cilent-the-blue-water-hotel-and-spa.png",
+    src: "/clients/cilent-the-blue-water-hotel-and-spa.webp",
     alt: "The Blue Water Hotel and Spa",
     invert: true,
   },
-  { src: "https://vegastudios.io/clients/client-b-love-kandy.png", alt: "B Love Kandy" },
-  { src: "https://vegastudios.io/clients/client-bppl.png", alt: "BPPL" },
-  { src: "https://vegastudios.io/clients/client-eco-spindles-logo.png", alt: "Eco Spindles" },
-  { src: "https://vegastudios.io/clients/client-galle-titans.png", alt: "Galle Titans" },
-  { src: "https://vegastudios.io/clients/client-gew.png", alt: "GEW" },
-  { src: "https://vegastudios.io/clients/client-glenross-living.png", alt: "Glenross Living" },
-  { src: "https://vegastudios.io/clients/client-hayleys-fibre.png", alt: "Hayleys Fibre" },
-  { src: "https://vegastudios.io/clients/client-hayleys-mattresses.png", alt: "Hayleys Mattresses" },
-  { src: "https://vegastudios.io/clients/client-hayleys.png", alt: "Hayleys" },
-  { src: "https://vegastudios.io/clients/client-lpl-t20-2023.png", alt: "LPL T20 2023" },
-  { src: "https://vegastudios.io/clients/client-maskeliya-kahata.png", alt: "Maskeliya Kahata" },
-  { src: "https://vegastudios.io/clients/client-mcdonald.png", alt: "McDonald" },
-  { src: "https://vegastudios.io/clients/client-rich-look.png", alt: "Rich Look" },
-  { src: "https://vegastudios.io/clients/client-rileys.png", alt: "Rileys" },
-  { src: "https://vegastudios.io/clients/client-tdu.png", alt: "TDU" },
-  { src: "https://vegastudios.io/clients/client-vta-sri-lanka.png", alt: "VTA Sri Lanka" },
+  { src: "/clients/client-b-love-kandy.webp", alt: "B Love Kandy" },
+  { src: "/clients/client-bppl.webp", alt: "BPPL" },
+  { src: "/clients/client-eco-spindles-logo.webp", alt: "Eco Spindles" },
+  { src: "/clients/client-galle-titans.webp", alt: "Galle Titans" },
+  { src: "/clients/client-gew.webp", alt: "GEW" },
+  { src: "/clients/client-glenross-living.webp", alt: "Glenross Living" },
+  { src: "/clients/client-hayleys-fibre.webp", alt: "Hayleys Fibre" },
+  { src: "/clients/client-hayleys-mattresses.webp", alt: "Hayleys Mattresses" },
+  { src: "/clients/client-hayleys.webp", alt: "Hayleys" },
+  { src: "/clients/client-lpl-t20-2023.webp", alt: "LPL T20 2023" },
+  { src: "/clients/client-maskeliya-kahata.webp", alt: "Maskeliya Kahata" },
+  { src: "/clients/client-mcdonald.webp", alt: "McDonald" },
+  { src: "/clients/client-rich-look.webp", alt: "Rich Look" },
+  { src: "/clients/client-rileys.webp", alt: "Rileys" },
+  { src: "/clients/client-tdu.webp", alt: "TDU" },
+  { src: "/clients/client-vta-sri-lanka.webp", alt: "VTA Sri Lanka" },
   {
-    src: "https://vegastudios.io/clients/client-water-garden-sigiriya.png",
+    src: "/clients/client-water-garden-sigiriya.webp",
     alt: "Water Garden Sigiriya",
   },
 ];
@@ -192,6 +192,8 @@ export default function TestimonialsSection() {
                 alt={logo.alt}
                 width={240}
                 height={80}
+                loading="eager"
+                sizes="(max-width: 767px) 140px, 200px"
                 className={logo.invert ? "client-logo invert" : "client-logo"}
               />
             </div>
